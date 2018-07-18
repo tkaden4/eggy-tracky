@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "An egg tracker for me and a friend",
   "main": "src/index.js",
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:80",
   "scripts": {
-    "build": "babel src --out-dir build && cd client && npm run build",
+    "build": "babel src --out-dir build && cd client && npm run install && npm run build",
     "start": "npm run build && node ./build/index.js",
     "start-dev": "nodemon src/index.js --ignore db.json --exec babel-node --presets env"
   },
