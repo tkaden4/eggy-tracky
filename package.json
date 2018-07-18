@@ -5,9 +5,10 @@
   "main": "src/index.js",
   "proxy": "http://localhost:80",
   "scripts": {
-    "build": "babel src --out-dir build && cd client && npm install && npm run build",
+    "build": "babel src --out-dir build && cd client && npm run build",
     "start": "npm run build && node ./build/index.js",
-    "start-dev": "nodemon src/index.js --ignore db.json --exec babel-node --presets env"
+    "start-dev": "nodemon src/index.js --ignore db.json --exec babel-node --presets env",
+    "heroku-postbuild": "cd client && npm install"
   },
   "repository": {
     "type": "git",
