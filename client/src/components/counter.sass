@@ -1,0 +1,77 @@
+@import "../settings"
+
+$component-color: #1a1a1a
+
+.counter
+    display: flex
+    flex-flow: column wrap
+    font-size: 30px
+    @media screen and (min-width: 450px)
+        font-size: 2em
+
+
+.count
+    $count-size: 3em
+
+    width: $count-size * 0.6
+    height: $count-size * 0.6
+
+    background-color: $main-color
+    color: $component-color
+    font-weight: 800
+
+    font-size: $count-size
+    border-radius: 50%
+
+    text-align: center
+    margin: 10px 0
+
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+button
+    background-color: transparent
+    border: none
+    box-shadow: none
+
+.arrow
+    // the initial size
+    $size: 1.5em
+    // how much should the button "grow"?
+    $scaling-factor: 1.08
+    // transition timing
+    $scale-time: 0.1s
+
+    align-self: center
+
+    background-color: $main-color
+    color: $component-color
+
+    border-radius: 50%
+
+    // FIX
+    // this makes sure the arrow won't pull right when clicked
+    padding: 0
+
+    width: $size
+    height: $size
+    font-size: $size
+
+    transition: height $scale-time, width $scale-time, font-size $scale-time, margin $scale-time
+    transition-timing-function: ease-out
+
+    &:hover
+        // keeps element "centered" without using absolute positioning, consider fix
+        margin: -($size * $scaling-factor - $size / $scaling-factor)/2 0px
+        // size manipulation to prevent shifting
+        width: $size * $scaling-factor
+        height: $size * $scaling-factor
+        font-size: $size * $scaling-factor
+
+    &:active
+        // go back to normal size
+        margin: 0
+        width: $size
+        height: $size
+        font-size: $size
